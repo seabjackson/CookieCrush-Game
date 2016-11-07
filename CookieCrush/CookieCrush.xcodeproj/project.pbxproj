@@ -24,6 +24,7 @@
 		121E53F61DC96AAA003462A0 /* Level_4.json in Resources */ = {isa = PBXBuildFile; fileRef = 121E53F11DC96AAA003462A0 /* Level_4.json */; };
 		121E53F91DC96BD5003462A0 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121E53F81DC96BD5003462A0 /* Tile.swift */; };
 		121E53FB1DC96E59003462A0 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 121E53FA1DC96E59003462A0 /* Extensions.swift */; };
+		125BD9721DD048A4003FA113 /* Swap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 125BD9711DD048A4003FA113 /* Swap.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,6 +47,7 @@
 		121E53F11DC96AAA003462A0 /* Level_4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_4.json; sourceTree = "<group>"; };
 		121E53F81DC96BD5003462A0 /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
 		121E53FA1DC96E59003462A0 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		125BD9711DD048A4003FA113 /* Swap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swap.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 		121E53BF1DC90BAF003462A0 = {
 			isa = PBXGroup;
 			children = (
+				125BD9711DD048A4003FA113 /* Swap.swift */,
 				121E53CA1DC90BAF003462A0 /* CookieCrush */,
 				121E53C91DC90BAF003462A0 /* Products */,
 			);
@@ -151,7 +154,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0800;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = "Seab Jackson";
 				TargetAttributes = {
 					121E53C71DC90BAF003462A0 = {
@@ -211,6 +214,7 @@
 				121E53D41DC90BAF003462A0 /* GameViewController.swift in Sources */,
 				121E53CC1DC90BAF003462A0 /* AppDelegate.swift in Sources */,
 				121E53E81DC9399D003462A0 /* Array2D.swift in Sources */,
+				125BD9721DD048A4003FA113 /* Swap.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -254,6 +258,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -303,6 +308,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_SUSPICIOUS_MOVES = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -372,6 +378,7 @@
 				121E53E21DC90BAF003462A0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

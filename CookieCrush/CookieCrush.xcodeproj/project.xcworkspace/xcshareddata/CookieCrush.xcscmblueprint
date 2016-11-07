@@ -1,14 +1,18 @@
 {
-  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "6E1E5AA360B088F8B27C23483EF3102F381337E3",
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "6E1E5AA360B088F8B27C23483EF3102F381337E3+++10FBD07",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
-    "6E1E5AA360B088F8B27C23483EF3102F381337E3" : 9223372036854775807
+    "6E1E5AA360B088F8B27C23483EF3102F381337E3+++10FBD07" : 9223372036854775807,
+    "6E1E5AA360B088F8B27C23483EF3102F381337E3+++511FD5F" : 9223372036854775807,
+    "6E1E5AA360B088F8B27C23483EF3102F381337E3+++7072DC8" : 9223372036854775807
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "86032BD7-53FF-4639-A3A1-DA1514A131D0",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
-    "6E1E5AA360B088F8B27C23483EF3102F381337E3" : ""
+    "6E1E5AA360B088F8B27C23483EF3102F381337E3+++10FBD07" : "CookieCrush-Game\/",
+    "6E1E5AA360B088F8B27C23483EF3102F381337E3+++511FD5F" : "",
+    "6E1E5AA360B088F8B27C23483EF3102F381337E3+++7072DC8" : ""
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "CookieCrush",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
@@ -17,12 +21,17 @@
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/seabjackson\/CookieCrush-Game.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6E1E5AA360B088F8B27C23483EF3102F381337E3"
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6E1E5AA360B088F8B27C23483EF3102F381337E3+++10FBD07"
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/seabjackson\/CookieCrush-Game.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6E1E5AA360B088F8B27C23483EF3102F381337E3"
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6E1E5AA360B088F8B27C23483EF3102F381337E3+++511FD5F"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/seabjackson\/CookieCrush-Game.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6E1E5AA360B088F8B27C23483EF3102F381337E3+++7072DC8"
     }
   ]
 }

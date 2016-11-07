@@ -25,6 +25,9 @@ class GameScene: SKScene {
     private var swipeFromColumn: Int?
     private var swipeFromRow: Int?
     
+    // get property to add highlighted versions of the sprites
+    private var selectionSprite = SKSpriteNode()
+    
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder) is not used in this app")
     }
@@ -107,6 +110,7 @@ class GameScene: SKScene {
             if let cookie = level.cookieAt(column: column, row: row) {
                 swipeFromColumn = column
                 swipeFromRow = row
+                showSelectionIndicatorForCookie(cookie: cookie)
             }
         }
     }
@@ -132,19 +136,43 @@ class GameScene: SKScene {
             
             if horzDelta != 0 || vertDelta != 0 {
                 trySwap(horizontal: horzDelta, vertical: vertDelta)
-                
+                hideSelectionIndicator()
                 swipeFromColumn = nil
             }
         }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if selectionSprite.parent != nil && swipeFromColumn != nil {
+            hideSelectionIndicator()
+        }
         swipeFromColumn = nil
         swipeFromRow = nil
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         touchesEnded(touches, with: event)         
+    }
+    
+    func showSelectionIndicatorForCookie(cookie: Cookie) {
+        if selectionSprite.parent != nil {
+            selectionSprite.removeFromParent()
+        }
+        
+        if let sprite = cookie.sprite {
+            let texture = SKTexture(imageNamed: cookie.cookieType.highlightedSpriteName)
+            selectionSprite.size = CGSize(width: TileWidth, height: TileHeight)
+            selectionSprite.run(SKAction.setTexture(texture))
+            
+            sprite.addChild(selectionSprite)
+            selectionSprite.alpha = 1.0
+        }
+    }
+    
+    func hideSelectionIndicator() {
+        selectionSprite.run(SKAction.sequence([
+            SKAction.fadeOut(withDuration: 0.3),
+            SKAction.removeFromParent()]))
     }
     
     // swapping the cookies

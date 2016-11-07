@@ -56,8 +56,18 @@ class Level {
         for row in 0..<NumRows {
             for column in 0..<NumColumns {
                 if tiles[column, row] != nil {
-                    // get a random cookie type
-                    var cookieType = CookieType.random()
+                    // smartly fill up the cookies board
+                    var cookieType: CookieType
+                    
+                    repeat {
+                        cookieType = CookieType.random()
+                    } while (column >= 2 &&
+                        cookies[column - 1, row]?.cookieType == cookieType &&
+                        cookies[column - 2, row]?.cookieType == cookieType)
+                    || (row >= 2 &&
+                        cookies[column, row - 1]?.cookieType == cookieType &&
+                        cookies[column, row - 2]?.cookieType == cookieType)
+                    
                     // create a cookie of that type with current coordinates in the grid
                     let cookie = Cookie(column: column, row: row, cookieType: cookieType)
                     // set the cookie in the correct place in the grid

@@ -47,7 +47,7 @@
 		121E53F11DC96AAA003462A0 /* Level_4.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Level_4.json; sourceTree = "<group>"; };
 		121E53F81DC96BD5003462A0 /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Tile.swift; sourceTree = "<group>"; };
 		121E53FA1DC96E59003462A0 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
-		125BD9711DD048A4003FA113 /* Swap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Swap.swift; sourceTree = "<group>"; };
+		125BD9711DD048A4003FA113 /* Swap.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Swap.swift; path = ../Swap.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +64,6 @@
 		121E53BF1DC90BAF003462A0 = {
 			isa = PBXGroup;
 			children = (
-				125BD9711DD048A4003FA113 /* Swap.swift */,
 				121E53CA1DC90BAF003462A0 /* CookieCrush */,
 				121E53C91DC90BAF003462A0 /* Products */,
 			);
@@ -81,12 +80,10 @@
 		121E53CA1DC90BAF003462A0 /* CookieCrush */ = {
 			isa = PBXGroup;
 			children = (
-				121E53CB1DC90BAF003462A0 /* AppDelegate.swift */,
+				121E53D31DC90BAF003462A0 /* GameViewController.swift */,
 				121E53D11DC90BAF003462A0 /* GameScene.swift */,
 				121E53FA1DC96E59003462A0 /* Extensions.swift */,
 				121E53EB1DC95F7C003462A0 /* Model */,
-				121E53D31DC90BAF003462A0 /* GameViewController.swift */,
-				121E53D51DC90BAF003462A0 /* Main.storyboard */,
 				121E53F71DC96ACC003462A0 /* Supporting Files */,
 			);
 			path = CookieCrush;
@@ -95,6 +92,7 @@
 		121E53EB1DC95F7C003462A0 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				125BD9711DD048A4003FA113 /* Swap.swift */,
 				121E53E51DC92A2E003462A0 /* Cookie.swift */,
 				121E53E91DC94B56003462A0 /* Level.swift */,
 				121E53E71DC9399D003462A0 /* Array2D.swift */,
@@ -118,6 +116,8 @@
 		121E53F71DC96ACC003462A0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				121E53CB1DC90BAF003462A0 /* AppDelegate.swift */,
+				121E53D51DC90BAF003462A0 /* Main.storyboard */,
 				121E53D81DC90BAF003462A0 /* Assets.xcassets */,
 				121E53EC1DC96AA9003462A0 /* Levels */,
 				121E53E31DC9142F003462A0 /* Sprites.atlas */,

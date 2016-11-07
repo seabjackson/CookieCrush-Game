@@ -10,6 +10,8 @@ import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene {
+    
+    var swipeHandler: ((Swap) -> ())?
     var level: Level!
     
     let tilesLayer = SKNode()
@@ -76,6 +78,25 @@ class GameScene: SKScene {
         }
     }
     
+    // animate the swapping of the cookie
+    func animate(_ swap: Swap, completion: @escaping () -> ()) {
+        let spriteA = swap.cookieA.sprite!
+        let spriteB = swap.cookieB.sprite!
+        
+        spriteA.zPosition = 100
+        spriteB.zPosition = 90
+        
+        let duration: TimeInterval = 0.3
+        
+        let moveA = SKAction.move(to: spriteB.position, duration: duration)
+        moveA.timingMode = .easeOut
+        spriteA.run(moveA, completion: completion)
+        
+        let moveB = SKAction.move(to: spriteA.position, duration: duration)
+        moveB.timingMode = .easeOut
+        spriteB.run(moveB)
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let touch = touches.first else { return }
         let location = touch.location(in: cookiesLayer)
@@ -135,7 +156,11 @@ class GameScene: SKScene {
         guard toRow >= 0 && toRow < NumRows else { return }
         
         if let toCookie = level.cookieAt(column: toColumn, row: toRow), let fromCookie = level.cookieAt(column: swipeFromColumn!, row: swipeFromRow!) {
-            print("**** swappinf \(fromCookie) with \(toCookie)")
+            
+            if let handler = swipeHandler {
+                let swap = Swap(cookieA: fromCookie, cookieB: toCookie)
+                handler(swap)
+            }
         }
     }
     

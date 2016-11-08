@@ -8,7 +8,16 @@
 
 import Foundation
 
-struct Swap: CustomStringConvertible {
+func ==(lhs: Swap, rhs: Swap) -> Bool {
+    return (lhs.cookieA == rhs.cookieA && lhs.cookieB == rhs.cookieB) ||
+        (lhs.cookieB == rhs.cookieA && lhs.cookieA == rhs.cookieB)
+}
+
+struct Swap: CustomStringConvertible, Hashable {
+    
+    var hashValue: Int {
+        return cookieA.hashValue ^ cookieB.hashValue
+    }
     let cookieA: Cookie
     let cookieB: Cookie
     

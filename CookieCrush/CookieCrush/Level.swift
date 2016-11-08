@@ -17,6 +17,7 @@ class Level {
     fileprivate var cookies = Array2D<Cookie>(columns: NumColumns, rows: NumRows)
     
     private var tiles = Array2D<Tile>(columns: NumColumns, rows: NumRows)
+    private var possibleSwaps = Set<Swap>()
     
     init(filename: String) {
         // early return if the filename is incorrect
@@ -81,7 +82,104 @@ class Level {
     }
     
     func shuffle() -> Set<Cookie> {
-        return createInitialCookies()
+        var set: Set<Cookie>
+        repeat {
+            set = createInitialCookies()
+            detectPossibleSwaps()
+            print("possible swaps: \(possibleSwaps)")
+        } while possibleSwaps.count == 0
+        
+        return set
+    }
+    
+    func detectPossibleSwaps() {
+        var set = Set<Swap>()
+        
+        for row in 0..<NumRows {
+            for column in 0..<NumColumns {
+                if let cookie = cookies[column, row] {
+                    // is it possible to swap tis cookie with the one on the right?
+                    if column < NumColumns - 1 {
+                        // if there is no tile, there is no cookie there
+                        if let other = cookies[column + 1, row] {
+                            //swap them
+                            cookies[column, row] = other
+                            cookies[column + 1, row] = cookie
+                            
+                            // is either cookie now part of a chain
+                            if hasChainAt(column: column + 1, row: row) ||
+                                hasChainAt(column: column, row: row) {
+                                set.insert(Swap(cookieA: cookie, cookieB: other))
+                            }
+                            
+                            // Swap them back
+                            cookies[column, row] = cookie
+                            cookies[column + 1, row] = other
+                        }
+                    }
+                    
+                    if row < NumRows - 1 {
+                        if let other = cookies[column, row + 1] {
+                            // swap them
+                            cookies[column, row] = other
+                            cookies[column, row + 1] = cookie
+                            
+                            // is either cookie now part of a chain?
+                            if hasChainAt(column: column, row: row + 1) ||
+                                hasChainAt(column: column, row: row) {
+                                set.insert(Swap(cookieA: cookie, cookieB: other))
+                            }
+                            
+                            // swap them back
+                            cookies[column, row] = cookie
+                            cookies[column, row + 1] = other
+                        }
+                    }
+                }
+            }
+        }
+        possibleSwaps = set
+    }
+    
+    // helper method for detectPossibleSwaps() to see if a cookie is part of a chain
+    private func hasChainAt(column: Int, row: Int) -> Bool {
+        let cookieType = cookies[column, row]!.cookieType
+        
+        // horizontal chain check
+        var horzLength = 1
+        
+        // left
+        var i = column - 1
+        while i >= 0 && cookies[i, row]?.cookieType == cookieType {
+            i -= 1
+            horzLength += 1
+        }
+        
+        // right
+        i = column + 1
+        while i < NumColumns && cookies[i, row]?.cookieType == cookieType {
+            i += 1
+            horzLength += 1
+        }
+        if horzLength >= 3 { return true }
+        
+        // vertical chain check
+        var vertLength = 1
+        
+        // Down
+        i = row - 1
+        while i >= 0 && cookies[column, i]?.cookieType == cookieType {
+            i -= 1
+            vertLength += 1
+        }
+        
+        // UP
+        i = row + 1
+        while i < NumRows && cookies[column, i]?.cookieType == cookieType {
+            i += 1
+            vertLength += 1
+        }
+        return vertLength >= 3
     }
     
     // updating the data model to ensure that the cookies array is always updated 
@@ -100,6 +198,10 @@ class Level {
         cookies[columnB, rowB] = swap.cookieA
         swap.cookieA.column = columnB
         swap.cookieA.row = rowB
+    }
+    
+    func isPossibleSwap(_ swap: Swap) -> Bool {
+        return possibleSwaps.contains(swap)
     }
 
 }
